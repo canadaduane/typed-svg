@@ -1,0 +1,23 @@
+{
+  "name": "@canadaduane/typed-svg",
+  "version": "1.0.0",
+  "description": "Typed SVG in ReasonML",
+  "scripts": {
+    "build": "bsb -make-world",
+    "clean": "bsb -clean",
+    "clean:all": "bsb -clean-world",
+    "test": "bsb -make-world; jest --verbose --coverage"
+  },
+  "keywords": ["reason", "svg"],
+  "author": "canadaduane",
+  "license": "MIT",
+  "files": ["src/", "bsconfig.json"],
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.2",
+    "coveralls": "^3.0.0",
+    "jest": "^22.0.4",
+    "bs-platform": "^3.0.0",
+    "bucklescript-tea": "^0.7.1"
+  },
+  "dependencies": {}
+}
