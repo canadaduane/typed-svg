@@ -2,6 +2,8 @@ open Jest;
 
 open ExpectJs;
 
+open TypedSvg.Types;
+
 /* module NumUnits = TypedSvg.Units.Default(TypedSvg.Units.NumUnits); */
 /* module PxUnits = TypedSvg.Units.Default(TypedSvg.Units.PxUnits); */
 /* open TypedSvg; */
@@ -19,6 +21,59 @@ open ExpectJs;
    ); */
 let () =
   describe("Units", () => {
+    /* Explicit Units */
+    test("length props can use explicit num (bare) units", () =>
+      TypedSvg.Units.(
+        expect(x1(num(1.))) |> toEqual(Vdom.attribute("", "x1", "1"))
+      )
+    );
+    test("length props can use explicit percent units", () =>
+      TypedSvg.Units.(
+        expect(x1(percent(10.)))
+        |> toEqual(Vdom.attribute("", "x1", "10%"))
+      )
+    );
+    test("length props can use explicit px units", () =>
+      TypedSvg.Units.(
+        expect(x1(px(1.))) |> toEqual(Vdom.attribute("", "x1", "1px"))
+      )
+    );
+    test("length props can use explicit cm units", () =>
+      TypedSvg.Units.(
+        expect(x1(cm(1.))) |> toEqual(Vdom.attribute("", "x1", "1cm"))
+      )
+    );
+    test("length props can use explicit em units", () =>
+      TypedSvg.Units.(
+        expect(x1(em(1.))) |> toEqual(Vdom.attribute("", "x1", "1em"))
+      )
+    );
+    test("length props can use explicit ex units", () =>
+      TypedSvg.Units.(
+        expect(x1(ex(1.))) |> toEqual(Vdom.attribute("", "x1", "1ex"))
+      )
+    );
+    test("length props can use explicit inch units", () =>
+      TypedSvg.Units.(
+        expect(x1(inch(1.))) |> toEqual(Vdom.attribute("", "x1", "1in"))
+      )
+    );
+    test("length props can use explicit mm units", () =>
+      TypedSvg.Units.(
+        expect(x1(mm(1.))) |> toEqual(Vdom.attribute("", "x1", "1mm"))
+      )
+    );
+    test("length props can use explicit pc units", () =>
+      TypedSvg.Units.(
+        expect(x1(pc(1.))) |> toEqual(Vdom.attribute("", "x1", "1pc"))
+      )
+    );
+    test("length props can use explicit pt units", () =>
+      TypedSvg.Units.(
+        expect(x1(pt(1.))) |> toEqual(Vdom.attribute("", "x1", "1pt"))
+      )
+    );
+    /* Default Units */
     test("length props can have default num (bare) units", () =>
       TypedSvg.NumUnits.(
         expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1"))
