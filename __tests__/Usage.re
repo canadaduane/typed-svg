@@ -4,8 +4,6 @@ open ExpectJs;
 
 open TypedSvg.Types;
 
-/* module NumUnits = TypedSvg.Units.Default(TypedSvg.Units.NumUnits); */
-/* module PxUnits = TypedSvg.Units.Default(TypedSvg.Units.PxUnits); */
 /* open TypedSvg; */
 /* let svg = (~key="", ~unique="", ~options=defaultSvgOptions, props, nodes) =>
    Vdom.fullnode(Tea.Svg.svgNamespace, "svg", key, unique, props, mergeOptions(options, nodes));

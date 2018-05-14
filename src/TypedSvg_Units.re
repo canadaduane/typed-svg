@@ -54,6 +54,39 @@ module PtUnits = {
   let toLength = (value: t) => pt(value);
 };
 
+/**
+ * This module is used in the TypedSvg base to create shortcut functions for length attributes.
+ * For instance, `open TypedSvg.PxUnits;` will provide cx, cy, dx, dy, ... etc. functions that
+ * accept float values that are converted to px (pixel) units. This is easier than excplicitly
+ * stating the length unit in each call.
+ *
+ * For example:
+ *
+ *   open TypedSvg;
+ *   rect([
+ *     TypedSvg.Units.x(TypedSvg.Types.px(10.)),
+ *     TypedSvg.Units.y(TypedSvg.Types.px(10.)),
+ *     TypedSvg.Units.width(TypedSvg.Types.px(40.)),
+ *     TypedSvg.Units.height(TypedSvg.Types.px(40.))
+ *   ], []);
+ *
+ * can be abbreviated as:
+ *
+ *   open TypedSvg;
+ *   open TypedSvg.PxUnits;
+ *   rect([ x(10.), y(10.), width(40.), height(40.) ]);
+ *
+ * If you discover that you need to mix and match units, you can still explicitly reference
+ * outside functions and lengths outside the default set of units:
+ *
+ *   open TypedSvg;
+ *   open TypedSvg.PxUnits;
+ *   rect([ x(10.), y(10.),
+ *     TypedSvg.Units.width(TypedSvg.Types.percent(50.)),
+ *     TypedSvg.Units.height(TypedSvg.Types.percent(50.))
+ *   ]);
+ *
+ */
 module Default = (Measurement: LengthUnit) => {
   let attr = (a, l) =>
     attribute("", a, lengthToString(Measurement.toLength(l)));
