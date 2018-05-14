@@ -1,13 +1,10 @@
-/* open Typed_svg_types; */
-/* 
 open Vdom;
 
-open Typed_svg_types;
- */
-/* module Px = Typed_svg_attributes_px; */
+open TypedSvg_Types;
 
-/* Regular attributes */
-/* let accentHeight = v => attribute("", "accent-height", v);
+open TypedSvg_Utils;
+
+let accentHeight = v => attribute("", "accent-height", v);
 
 let accelerate = v => attribute("", "accelerate", v);
 
@@ -288,7 +285,7 @@ let transform = (transforms: list(transform)) =>
   attribute(
     "",
     "transform",
-    Utils.joinStrings(List.map(transformToString, transforms), " ")
+    joinStrings(List.map(transformToString, transforms), " "),
   );
 
 let type' = v => attribute("", "type", v);
@@ -326,7 +323,7 @@ let vertOriginX = v => attribute("", "vert-origin-x", v);
 let vertOriginY = v => attribute("", "vert-origin-y", v);
 
 let viewBox = (minX: float, minY: float, width: float, height: float) =>
-  attribute("", "viewBox", Utils.joinFloats([minX, minY, width, height], " "));
+  attribute("", "viewBox", joinFloats([minX, minY, width, height], " "));
 
 let viewTarget = v => attribute("", "viewTarget", v);
 
@@ -421,7 +418,7 @@ let fontFamily = (family: fontFamily) =>
   attribute("", "font-family", fontFamilyToString(family));
 
 let fontFamilies = (families: list(fontFamily)) => {
-  let famStr = Utils.joinStrings(List.map(fontFamilyToString, families), " ");
+  let famStr = joinStrings(List.map(fontFamilyToString, families), " ");
   attribute("", "font-family", famStr);
 };
 
@@ -497,4 +494,4 @@ let visibility = v => attribute("", "visibility", v);
 
 let wordSpacing = v => attribute("", "word-spacing", v);
 
-let writingMode = v => attribute("", "writing-mode", v); */
+let writingMode = v => attribute("", "writing-mode", v);

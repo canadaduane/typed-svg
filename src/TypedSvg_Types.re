@@ -14,11 +14,37 @@ let commonAttr = {auto: "auto", inherit_: "inherit", none: "none"};
 /* In a future version of TypedSvg, this may be turned into a DSL */
 type clockValue = string;
 
+[@bs.deriving accessors]
+type length =
+  | Num(float)
+  | Percent(float)
+  | Px(float)
+  | Cm(float)
+  | Em(float)
+  | Ex(float)
+  | Inch(float)
+  | Mm(float)
+  | Pc(float)
+  | Pt(float);
+
+let lengthToString = value =>
+  switch (value) {
+  | Num(x) => Js.Float.toString(x)
+  | Percent(x) => Js.Float.toString(x) ++ "%"
+  | Px(x) => Js.Float.toString(x) ++ "px"
+  | Cm(x) => Js.Float.toString(x) ++ "cm"
+  | Em(x) => Js.Float.toString(x) ++ "em"
+  | Ex(x) => Js.Float.toString(x) ++ "ex"
+  | Inch(x) => Js.Float.toString(x) ++ "in"
+  | Mm(x) => Js.Float.toString(x) ++ "mm"
+  | Pc(x) => Js.Float.toString(x) ++ "pc"
+  | Pt(x) => Js.Float.toString(x) ++ "pt"
+  };
+
 type color =
   | RGB(int, int, int)
   | RGBA(int, int, int, int)
   | Color(string);
-
 
 let colorToString: option(color) => string = {
   let rgbColorToString = (r, g, b) =>
@@ -29,7 +55,6 @@ let colorToString: option(color) => string = {
     ++ ","
     ++ Js.Int.toString(b)
     ++ ")";
-
   let rgbaColorToString = (r, g, b, a) =>
     "rgba("
     ++ Js.Int.toString(r)
@@ -40,42 +65,14 @@ let colorToString: option(color) => string = {
     ++ ","
     ++ Js.Int.toString(a)
     ++ ")";
-  
   value =>
     switch (value) {
     | None => commonAttr.none
     | Some(RGB(r, g, b)) => rgbColorToString(r, g, b)
     | Some(RGBA(r, g, b, a)) => rgbaColorToString(r, g, b, a)
     | Some(Color(value)) => value
-    }
+    };
 };
-
-[@bs.deriving accessors]
-type length =
-  | Num(float)
-  | Percent(float)
-  | Px(float)
-  | Cm(float)
-  | Em(float)
-  | Ex(float)
-  | In(float)
-  | Mm(float)
-  | Pc(float)
-  | Pt(float);
-
-let lengthToString = value =>
-  switch (value) {
-  | Num(x) => string_of_float(x)
-  | Percent(x) => string_of_float(x) ++ "%"
-  | Px(x) => string_of_float(x) ++ "px"
-  | Cm(x) => string_of_float(x) ++ "cm"
-  | Em(x) => string_of_float(x) ++ "em"
-  | Ex(x) => string_of_float(x) ++ "ex"
-  | In(x) => string_of_float(x) ++ "in"
-  | Mm(x) => string_of_float(x) ++ "mm"
-  | Pc(x) => string_of_float(x) ++ "pc"
-  | Pt(x) => string_of_float(x) ++ "pt"
-  };
 
 type scale =
   | Min

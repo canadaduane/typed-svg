@@ -2,18 +2,71 @@ open Jest;
 
 open ExpectJs;
 
+/* module NumUnits = TypedSvg.Units.Default(TypedSvg.Units.NumUnits); */
+/* module PxUnits = TypedSvg.Units.Default(TypedSvg.Units.PxUnits); */
 /* open TypedSvg; */
-let svg = (~key="", ~unique="", ~length=TypedSvg_Types.px, props, nodes) =>
-  Vdom.fullnode(Tea.Svg.svgNamespace, "svg", key, unique, props, nodes);
+/* let svg = (~key="", ~unique="", ~options=defaultSvgOptions, props, nodes) =>
+   Vdom.fullnode(Tea.Svg.svgNamespace, "svg", key, unique, props, mergeOptions(options, nodes));
 
+   let svg = (w:Measurement.t, h:Measurement.t, ~maxX=100., ~maxY=100., children) =>
+   Tea.Svg.svg(
+     [
+       width(w),
+       height(h),
+       viewBox(0., 0., maxX, maxY)
+     ],
+     children
+   ); */
 let () =
-  describe("Usage", () => {
-    test("should be 1", () =>
-      expect(1) |> toEqual(1)
+  describe("Units", () => {
+    test("length props can have default num (bare) units", () =>
+      TypedSvg.NumUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1"))
+      )
     );
-    test("svg", ()
-      /* svg(~length=px, []) */
-      =>
-        expect(1) |> toEqual(2)
-      );
+    test("length props can have default percent units", () =>
+      TypedSvg.PercentUnits.(
+        expect(x1(100.)) |> toEqual(Vdom.attribute("", "x1", "100%"))
+      )
+    );
+    test("length props can have default px units", () =>
+      TypedSvg.PxUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1px"))
+      )
+    );
+    test("length props can have default cm units", () =>
+      TypedSvg.CmUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1cm"))
+      )
+    );
+    test("length props can have default em units", () =>
+      TypedSvg.EmUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1em"))
+      )
+    );
+    test("length props can have default ex units", () =>
+      TypedSvg.ExUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1ex"))
+      )
+    );
+    test("length props can have default inch units", () =>
+      TypedSvg.InchUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1in"))
+      )
+    );
+    test("length props can have default mm units", () =>
+      TypedSvg.MmUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1mm"))
+      )
+    );
+    test("length props can have default pc units", () =>
+      TypedSvg.PcUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1pc"))
+      )
+    );
+    test("length props can have default pt units", () =>
+      TypedSvg.PtUnits.(
+        expect(x1(1.)) |> toEqual(Vdom.attribute("", "x1", "1pt"))
+      )
+    );
   });
