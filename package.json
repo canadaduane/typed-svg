@@ -11,7 +11,7 @@
   "keywords": ["reason", "svg"],
   "author": "canadaduane",
   "license": "MIT",
-  "files": ["src/", "bsconfig.json"],
+  "files": ["src/*.re*", "bsconfig.json"],
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.2",
     "coveralls": "^3.0.0",

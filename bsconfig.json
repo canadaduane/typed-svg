@@ -3,10 +3,6 @@
 {
   "name": "@canadaduane/typed-svg",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
-  "sources": {
-    "dir": "src",
-    "subdirs": true
-  },
   "package-specs": {
     "module": "commonjs",
     "in-source": true
@@ -14,7 +10,8 @@
   "suffix": ".bs.js",
   "sources": [
     {
-      "dir": "src"
+      "dir": "src",
+      "subdirs": true
     },
     {
       "dir": "__tests__",
