@@ -4,8 +4,7 @@
   "name": "typed-svg",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
   "package-specs": {
-    "module": "commonjs",
-    "in-source": true
+    "module": "commonjs"
   },
   "suffix": ".bs.js",
   "sources": [
