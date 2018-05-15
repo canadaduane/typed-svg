@@ -13,8 +13,12 @@
       "type": "dev"
     }
   ],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "bs-dependencies": ["bucklescript-tea"],
-  "refmt": 3,
-  "namespace": true
+  "suffix": ".bs.js",
+  "refmt": 3
 }
