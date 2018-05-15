@@ -3,10 +3,6 @@
 {
   "name": "typed-svg",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
-  "package-specs": {
-    "module": "commonjs"
-  },
-  "suffix": ".bs.js",
   "sources": [
     {
       "dir": "src",
@@ -19,9 +15,6 @@
   ],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "bs-dependencies": ["bucklescript-tea"],
-  "warnings": {
-    "error": "+101"
-  },
-  "namespace": true,
-  "refmt": 3
+  "refmt": 3,
+  "namespace": true
 }
