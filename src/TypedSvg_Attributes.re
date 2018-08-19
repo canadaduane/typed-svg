@@ -259,7 +259,8 @@ let stitchTiles = v => attribute("", "stitchTiles", v);
 
 let strikethroughPosition = v => attribute("", "strikethrough-position", v);
 
-let strikethroughThickness = v => attribute("", "strikethrough-thickness", v);
+let strikethroughThickness = v =>
+  attribute("", "strikethrough-thickness", v);
 
 let string = v => attribute("", "string", v);
 
@@ -479,7 +480,8 @@ let strokeMiterlimit = v => attribute("", "stroke-miterlimit", v);
 
 let strokeOpacity = v => attribute("", "stroke-opacity", v);
 
-let stroke = v => attribute("", "stroke", v);
+let stroke = (color: option(color)) =>
+  attribute("", "stroke", colorToString(color));
 
 let textAnchor = (anchor: anchorAlignment) =>
   attribute("", "text-anchor", anchorAlignmentToString(anchor));
