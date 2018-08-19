@@ -8,16 +8,22 @@
     "clean:all": "bsb -clean-world",
     "test": "bsb -make-world; jest --verbose --coverage"
   },
-  "keywords": ["reason", "svg"],
+  "keywords": [
+    "reason",
+    "svg"
+  ],
   "author": "canadaduane",
   "license": "MIT",
-  "files": ["src/", "bsconfig.json"],
+  "files": [
+    "src/",
+    "bsconfig.json"
+  ],
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.2",
-    "coveralls": "^3.0.0",
-    "jest": "^22.0.4",
-    "bs-platform": "^3.0.0",
-    "bucklescript-tea": "^0.7.1"
+    "coveralls": "^3.0.2",
+    "jest": "^23.5.0",
+    "bs-platform": "^4.0.5",
+    "bucklescript-tea": "^0.7.4"
   },
   "dependencies": {}
 }
