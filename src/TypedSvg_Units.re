@@ -2,7 +2,10 @@ open Vdom;
 
 open TypedSvg_Types;
 
-module type LengthUnit = {type t; let toLength: t => length;};
+module type LengthUnit = {
+  type t;
+  let toLength: t => length;
+};
 
 module NumUnits = {
   type t = float;
@@ -110,7 +113,7 @@ module Default = (Measurement: LengthUnit) => {
   let textLength: Measurement.t => Vdom.property('a) =
     l => attr("textLength", l);
   let strokeWidth: Measurement.t => Vdom.property('a) =
-    l => attr("strokeWidth", l);
+    l => attr("stroke-width", l);
   let x: Measurement.t => Vdom.property('a) = l => attr("x", l);
   let y: Measurement.t => Vdom.property('a) = l => attr("y", l);
   let x1: Measurement.t => Vdom.property('a) = l => attr("x1", l);
@@ -140,7 +143,8 @@ let height: length => Vdom.property('a) = l => attr("height", l);
 
 let width: length => Vdom.property('a) = l => attr("width", l);
 
-let markerHeight: length => Vdom.property('a) = l => attr("markerHeight", l);
+let markerHeight: length => Vdom.property('a) =
+  l => attr("markerHeight", l);
 
 let markerWidth: length => Vdom.property('a) = l => attr("markerWidth", l);
 

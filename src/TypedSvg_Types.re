@@ -114,7 +114,8 @@ type align =
 let alignToString = option =>
   switch (option) {
   | None => commonAttr.none
-  | Some(Align(x, y)) => "X" ++ scaleToString(x) ++ "Y" ++ scaleToString(y)
+  | Some(Align(x, y)) =>
+    "X" ++ scaleToString(x) ++ "Y" ++ scaleToString(y)
   };
 
 type alignmentBaseline =
